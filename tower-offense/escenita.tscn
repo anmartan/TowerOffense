@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkkwsl8ntnd3k"]
+
+[ext_resource type="Script" uid="uid://6pypcwssell7" path="res://escenita.gd" id="1_wcq8m"]
+
+[node name="Escenita" type="Node3D"]
+script = ExtResource("1_wcq8m")
