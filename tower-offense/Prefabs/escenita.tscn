@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://bkkwsl8ntnd3k"]
 
-[ext_resource type="Script" uid="uid://6pypcwssell7" path="res://escenita.gd" id="1_wcq8m"]
-[ext_resource type="Texture2D" uid="uid://bd28lffqmo2th" path="res://48750779.jpg" id="2_7le68"]
-[ext_resource type="PackedScene" uid="uid://dniiigj2umjh3" path="res://player.tscn" id="2_sgnji"]
+[ext_resource type="Script" uid="uid://6pypcwssell7" path="res://Scripts/escenita.gd" id="1_uhf81"]
+[ext_resource type="PackedScene" uid="uid://dniiigj2umjh3" path="res://Prefabs/Characters/player.tscn" id="2_lwcwo"]
+[ext_resource type="Texture2D" uid="uid://bd28lffqmo2th" path="res://Textures/48750779.jpg" id="3_pcwjd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7le68"]
-albedo_texture = ExtResource("2_7le68")
+albedo_texture = ExtResource("3_pcwjd")
 uv1_scale = Vector3(3, 2, 3)
 
 [sub_resource type="BoxMesh" id="BoxMesh_qrt54"]
@@ -15,12 +15,12 @@ material = SubResource("StandardMaterial3D_7le68")
 points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
 
 [node name="Escenita" type="Node3D"]
-script = ExtResource("1_wcq8m")
+script = ExtResource("1_uhf81")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.3588567, 0.93339264, 0, -0.93339264, 0.3588567, 0.41920912, 0.4526391, 0.19902015)
 
-[node name="CharacterBody3D" parent="." instance=ExtResource("2_sgnji")]
+[node name="CharacterBody3D" parent="." instance=ExtResource("2_lwcwo")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -0.27525246, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
