@@ -1,6 +1,35 @@
-[gd_scene load_steps=2 format=3 uid="uid://bkkwsl8ntnd3k"]
+[gd_scene load_steps=7 format=3 uid="uid://bkkwsl8ntnd3k"]
 
 [ext_resource type="Script" uid="uid://6pypcwssell7" path="res://escenita.gd" id="1_wcq8m"]
+[ext_resource type="Texture2D" uid="uid://bd28lffqmo2th" path="res://48750779.jpg" id="2_7le68"]
+[ext_resource type="PackedScene" uid="uid://dniiigj2umjh3" path="res://player.tscn" id="2_sgnji"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7le68"]
+albedo_texture = ExtResource("2_7le68")
+uv1_scale = Vector3(3, 2, 3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qrt54"]
+material = SubResource("StandardMaterial3D_7le68")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_htw33"]
+points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
 
 [node name="Escenita" type="Node3D"]
 script = ExtResource("1_wcq8m")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.3588567, 0.93339264, 0, -0.93339264, 0.3588567, 0.41920912, 0.4526391, 0.19902015)
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("2_sgnji")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -0.27525246, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.9284573, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(37.501842, 0, 0, 0, 0.2597183, 0, 0, 0, 32.5253, 0, 0, 0)
+mesh = SubResource("BoxMesh_qrt54")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(37.501842, 0, 0, 0, 0.2597183, 0, 0, 0, 32.5253, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_htw33")
